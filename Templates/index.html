@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Currency Converter</title>
+    <style>
+      .form-container {
+        background-color: #f1f1f1;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Currency Converter</h1>
+    <div class="form-container">
+      <form action="/" method="POST">
+        <label for="from_currency">Convert from:</label>
+        <select name="from_currency" id="from_currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <!-- Add more currency options as needed -->
+        </select>
+
+        <label for="to_currency">Convert to:</label>
+        <select name="to_currency" id="to_currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <!-- Add more currency options as needed -->
+        </select>
+
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" id="amount">
+
+        <input type="submit" value="Convert">
+      </form>
+    </div>
+  </body>
+</html>

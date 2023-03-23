@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Currency Converter</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      .calculator {
+        background-color: #ecf0f1;
+        padding: 20px;
+        border-radius: 30px;
+        margin: 20px auto;
+        border: 8px solid #2980b9;
+        width: 50%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .calculator h1 {
+        text-align: center;
+        color: #2c3e50;
+        font-size: 48px;
+        text-shadow: 2px 2px 4px #ccc;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: #2ecc71;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        text-shadow: 2px 2px 4px #333;
+      }
+      .error {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 24px;
+        text-shadow: 2px 2px 4px #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <h1>Currency Converter</h1>
+      <form action="/calculator" method="POST">
+        <label for="from_currency">Convert from:</label>
+        <input type="text" name="from_currency" id="from_currency" list="currencies" required>
+        <datalist id="currencies">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <!-- Add more currency options as needed -->
+        </datalist>
+  
+        <label for="to_currency">Convert to:</label>
+        <input type="text" name="to_currency" id="to_currency" list="currencies" required>
+  
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" id="amount" required>
+  
+        <input type="submit" value="Convert" onclick="return validateForm()">
+      </form>
+      <div class="options">
+        <p>Currency List:</p>
+        <ul>
+          <li>USD: United States Dollar</li>
+          <li>EUR: Euro</li>
+          <li>GBP: British Pound Sterling</li>
+          <!-- Add more currency options as needed -->
+        </ul>
+      </div>
+      {% if result %}
+      <div class="result">
+        {{ amount }} {{ from_currency }} = {{ result }} {{ to_currency }}
+      </div>
+      {% endif %}
+      {% if error %}
+      <div class="error">
+        {{ error }}
+      </div>
+      {% endif %}
+    </div>
+  </body>
+  
